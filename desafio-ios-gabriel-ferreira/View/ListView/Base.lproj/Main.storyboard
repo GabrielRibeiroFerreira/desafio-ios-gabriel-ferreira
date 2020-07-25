@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zvx-va-o80">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Characters-->
+        <scene sceneID="dsZ-f9-k5b">
+            <objects>
+                <tableViewController id="ZKv-Ut-xtV" customClass="ListTableViewController" customModule="desafio_ios_gabriel_ferreira" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0KA-rL-rcz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ZKv-Ut-xtV" id="YiX-Pt-5k9"/>
+                            <outlet property="delegate" destination="ZKv-Ut-xtV" id="e5e-ea-SQ4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Characters" largeTitleDisplayMode="always" id="2P7-TK-MZ4"/>
+                    <connections>
+                        <segue destination="0Wm-MB-r4k" kind="show" identifier="toCharacterSegue" id="Omv-NB-wby"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2G-Z8-soj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="502" y="63"/>
+        </scene>
+        <!--Character-->
+        <scene sceneID="1DX-Ou-z8e">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Character" id="0Wm-MB-r4k" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qo0-ZW-JGg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Btc-ai-Fbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="476"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="08Q-pL-bSG">
+            <objects>
+                <navigationController id="Zvx-va-o80" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Czx-9J-L1Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZKv-Ut-xtV" kind="relationship" relationship="rootViewController" id="SHQ-Vc-bai"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUa-Bd-GYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-450" y="63"/>
+        </scene>
+    </scenes>
+</document>
