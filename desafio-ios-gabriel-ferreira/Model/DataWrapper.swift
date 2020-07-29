@@ -1,5 +1,5 @@
 //
-//  CharacterDataWrapper.swift
+//  DataWrapper.swift
 //  desafio-ios-gabriel-ferreira
 //
 //  Created by Gabriel Ferreira on 24/07/20.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct CharacterDataWrapper : Decodable {
+class DataWrapper<Element:Codable> : Decodable {
     var code : Int?
     var status : String?
     var copyright : String?
     var attributionText : String?
     var attributionHTML : String?
     var etag : String?
-    var data : CharacterDataContainer?    
+    var data : DataContainer<Element>?
 }

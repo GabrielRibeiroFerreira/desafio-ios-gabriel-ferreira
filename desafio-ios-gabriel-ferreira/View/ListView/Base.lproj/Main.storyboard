@@ -19,8 +19,21 @@
                             <outlet property="delegate" destination="ZKv-Ut-xtV" id="e5e-ea-SQ4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Characters" largeTitleDisplayMode="always" id="2P7-TK-MZ4"/>
+                    <navigationItem key="navigationItem" title="Characters" largeTitleDisplayMode="always" id="2P7-TK-MZ4">
+                        <barButtonItem key="leftBarButtonItem" title="Previous page" id="uvI-Uk-y4V">
+                            <connections>
+                                <action selector="previousAction:" destination="ZKv-Ut-xtV" id="XUb-ei-PfY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next page" id="3lj-yO-sqI">
+                            <connections>
+                                <action selector="nextAction:" destination="ZKv-Ut-xtV" id="iMx-K8-S5W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="3lj-yO-sqI" id="mE6-Ij-x5u"/>
+                        <outlet property="previousButton" destination="uvI-Uk-y4V" id="YHx-zu-aC8"/>
                         <segue destination="0Wm-MB-r4k" kind="show" identifier="toCharacterSegue" id="Omv-NB-wby"/>
                     </connections>
                 </tableViewController>
@@ -36,7 +49,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btc-ai-Fbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737" y="476"/>
+            <point key="canvasLocation" x="502" y="478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="08Q-pL-bSG">

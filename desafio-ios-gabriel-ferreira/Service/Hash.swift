@@ -32,13 +32,4 @@ class Hash {
         
         return res
     }
-
-    //Test:
-//    let md5Data = MD5(string:"Hello")
-//
-//    let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
-//    print("md5Hex: \(md5Hex)")
-//
-//    let md5Base64 = md5Data.base64EncodedString()
-//    print("md5Base64: \(md5Base64)")
 }

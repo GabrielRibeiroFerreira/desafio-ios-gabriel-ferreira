@@ -23,25 +23,4 @@ class CharacterTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func getImage(from url: String){
-        guard let imageURL = URL(string: url) else { return }
-        if let image = Character.imageCache.object(forKey: NSString(string: url)){
-            self.img.image = image
-            return
-        }
-        DispatchQueue.main.async {
-            do{
-                let imageData = try Data(contentsOf: imageURL)
-                self.imgURL = url
-                let image = UIImage(data: imageData)
-                self.img.image = image
-                Character.imageCache.setObject(image!, forKey: NSString(string: url))
-            }catch{
-//                self.delegate?.showError(title: "Problema com conexão",
-//                                         message: "Teste sua conexão e tente novamente")
-//                print(error)
-            }
-        }
-    }
 }

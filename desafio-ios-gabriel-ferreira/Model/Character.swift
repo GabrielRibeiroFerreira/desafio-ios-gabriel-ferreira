@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 //Exiba a imagem do personagem, o nome, a descrição e um botão de direcionamento para a uma tela que mostre qual a HQ mais cara daquele personagem.
-struct Character : Decodable {
-    static let imageCache = NSCache<NSString, UIImage>()
+class Character : Codable {
     var id : Int?
-    var name : String?
     var description : String?
+    var name : String?
+    var comics: ComicList?
     var thumbnail : Thumbnail?
-    struct Thumbnail : Decodable {
+    struct Thumbnail : Codable {
         var path : String?
         var `extension` : String?
     }
