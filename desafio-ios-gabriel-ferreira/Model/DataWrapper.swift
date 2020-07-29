@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataWrapper<Element:Codable> : Decodable {
+class DataWrapper<Element:Codable> : Codable {
     var code : Int?
     var status : String?
     var copyright : String?

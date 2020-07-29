@@ -109,7 +109,7 @@ class ListTableViewController: UITableViewController {
     
     func showError(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "tentar novamente", style: .default, handler: {
+        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: {
             (action : UIAlertAction) in
             self.presenter.getData()
         }))

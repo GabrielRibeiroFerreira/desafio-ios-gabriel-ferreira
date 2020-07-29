@@ -11,3 +11,8 @@ import Foundation
 enum ConnectErrors: Error {
     case receivedFailure
 }
+
+struct ErrorMessage : Codable {
+    let code : Int
+    let status : String
+}

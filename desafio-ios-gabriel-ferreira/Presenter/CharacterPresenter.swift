@@ -18,6 +18,12 @@ class CharacterPresenter {
         self.delegate = delegate
         if let url = delegate.character.comics?.collectionURI {
             self.getData(from: url)
+            
+            //TO-DO: get all the comics (for now only works for the first 100)
+//            repeat {
+//                self.getData(from: url)
+//                self.offset += self.limit
+//            } while offset + limit < self.delegate?.character.comics?.available ?? 0
         }
     }
     
@@ -49,8 +55,8 @@ class CharacterPresenter {
                     }
                 }
             }catch ConnectErrors.receivedFailure{
-                self.delegate?.showError(title: "Problema com conexão",
-                                         message: "Teste sua conexão e tente novamente")
+                self.delegate?.showError(title: "Connection problem",
+                                         message: "The comic is not available due to lack of internet connection")
             }catch{
                 print(error)
             }
@@ -61,28 +67,24 @@ class CharacterPresenter {
         var actualComic : Comic?
         
         for comic in comics {
-            guard let prices = comic.prices else { continue }
+            guard let price = comic.getHigherPrice() else { continue }
+            guard let actualPrice = actualComic?.getHigherPrice() else {
+                actualComic = Comic(id: comic.id,
+                                    description: comic.description,
+                                    title: comic.title,
+                                    price: price,
+                                    path: comic.thumbnail?.path,
+                                    ext: comic.thumbnail?.extension)
+                continue
+            }
             
-            for price in prices {
-                guard let comicPrice = price.price else { continue }
-                
-                if let actualPrice = actualComic?.prices?.first?.price {
-                    if comicPrice >= actualPrice {
-                        actualComic = Comic(id: comic.id,
-                                            description: comic.description,
-                                            title: comic.title,
-                                            price: comicPrice,
-                                            path: comic.thumbnail?.path,
-                                            ext: comic.thumbnail?.extension)
-                    }
-                } else {
-                    actualComic = Comic(id: comic.id,
-                                        description: comic.description,
-                                        title: comic.title,
-                                        price: comicPrice,
-                                        path: comic.thumbnail?.path,
-                                        ext: comic.thumbnail?.extension)
-                }
+            if price > actualPrice {
+                actualComic = Comic(id: comic.id,
+                                    description: comic.description,
+                                    title: comic.title,
+                                    price: price,
+                                    path: comic.thumbnail?.path,
+                                    ext: comic.thumbnail?.extension)
             }
         }
         

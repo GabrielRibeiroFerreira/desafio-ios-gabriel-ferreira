@@ -62,8 +62,8 @@ class ListPresenter {
                     }
                 }
             }catch ConnectErrors.receivedFailure{
-                self.delegate?.showError(title: "Problema com conexão",
-                                         message: "Teste sua conexão e tente novamente")
+                self.delegate?.showError(title: "Connection problem",
+                                         message: "The comic is not available due to lack of internet connection")
             }catch{
                 print(error)
             }
@@ -81,9 +81,9 @@ class ListPresenter {
                     Cache.imageCache.setObject(imageData as NSData, forKey: NSString(string: url))
                     completion(imageData as NSData)
                 }catch{
-        //               self.delegate?.showError(title: "Problema com conexão",
-        //                                        message: "Teste sua conexão e tente novamente")
-        //               print(error)
+                       self.delegate?.showError(title: "Problema com conexão",
+                                                message: "Teste sua conexão e tente novamente")
+                       print(error)
                 }
             }
         }

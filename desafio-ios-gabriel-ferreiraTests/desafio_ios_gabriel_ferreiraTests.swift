@@ -10,25 +10,54 @@ import XCTest
 @testable import desafio_ios_gabriel_ferreira
 
 class desafio_ios_gabriel_ferreiraTests: XCTestCase {
+    var service: Service!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        service = Service()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testCharactersAtComic() {
+        let url = "http://gateway.marvel.com/v1/public/characters"
+        let offset = 0
+        let limit = 100
+        var received = false
+        do {
+            try self.service.getData(from: url, for: .comic, offset: offset, limit: limit)
+            self.service.completionHandler { (data, status, message, total) in
+                if status {
+                    print(message)
+                    guard let _ = data as? [Comic] else {return}
+                    received = true
+                }
+            }
+        }catch ConnectErrors.receivedFailure{
+            print(ConnectErrors.receivedFailure)
+        }catch{
+            print(error)
         }
+        XCTAssertEqual(received, false, "comics receving characters data")
     }
-
+    
+    func testComicAtCharacters() {
+        let url = "http://gateway.marvel.com/v1/public/characters/1017100/comics"
+        let offset = 0
+        let limit = 100
+        var received = false
+        do {
+            try self.service.getData(from: url, for: .character, offset: offset, limit: limit)
+            self.service.completionHandler { (data, status, message, total) in
+                if status {
+                    print(message)
+                    guard let _ = data as? [Character] else {return}
+                    received = true
+                }
+            }
+        }catch ConnectErrors.receivedFailure{
+            print(ConnectErrors.receivedFailure)
+        }catch{
+            print(error)
+        }
+        XCTAssertEqual(received, false, "characters receving comics data")
+    }
 }

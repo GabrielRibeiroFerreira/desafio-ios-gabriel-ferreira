@@ -32,4 +32,22 @@ class Comic : Codable {
         self.prices = [ComicPrice(type: nil, price: price)]
         self.thumbnail = Thumbnail(path: path, extension: ext)
     }
+    
+    func getHigherPrice() -> Float? {
+        guard let comicPrices = self.prices else { return nil }
+        var actualComicPrice : ComicPrice?
+        
+        for comicPrice in comicPrices {
+            guard let price = comicPrice.price else { continue }
+            if let actual = actualComicPrice?.price {
+                if actual < price {
+                    actualComicPrice = comicPrice
+                }
+            } else {
+                actualComicPrice = comicPrice
+            }
+        }
+        
+        return actualComicPrice?.price
+    }
 }

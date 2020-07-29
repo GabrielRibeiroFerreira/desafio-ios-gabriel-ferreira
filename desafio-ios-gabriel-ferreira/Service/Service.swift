@@ -26,33 +26,45 @@ class Service {
         
         AF.request(url, method: .get, parameters: ["ts": self.timestamp, "apikey": self.publicKey , "hash": hash, "limit": limit, "offset": String(offset)], encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
             (responseData) in
-            guard let data = responseData.data else {
-                self.callBack?(nil, false, "", 0)
-                return
-            }
-
-            do {
-                let key = Cache.getKey(url: url,
-                                       offset: offset,
-                                       limit: limit)
-                if dataType == .character {
-                    let dataWrapper = try JSONDecoder().decode(DataWrapper<Character>.self, from: data)
-                    let characters = dataWrapper.data?.results
-                    let total = dataWrapper.data?.total
-                    Cache.characterCache.setObject(dataWrapper, forKey: NSString(string: key))
-                    Cache.copyright = dataWrapper.copyright ?? ""
-                    self.callBack?(characters, true, "", total)
-                }else{
-                    let dataWrapper = try JSONDecoder().decode(DataWrapper<Comic>.self, from: data)
-                    let comics = dataWrapper.data?.results
-                    let total = dataWrapper.data?.total
-                    Cache.comicCache.setObject(dataWrapper, forKey: NSString(string: key))
-                    Cache.copyright = dataWrapper.copyright ?? ""
-                    self.callBack?(comics, true, "", total)
+            switch responseData.result {
+            case .failure(let error):
+                self.callBack?(nil, false, error.errorDescription ?? "", 0)
+            case .success(_):
+                guard let data = responseData.data else {
+                    self.callBack?(nil, false, "", 0)
+                    return
                 }
-            } catch {
-                self.callBack?(nil, false, error.localizedDescription, 0)
+                do {
+                    let key = Cache.getKey(url: url,
+                                           offset: offset,
+                                           limit: limit)
+                    if responseData.response?.statusCode == 200 {
+                        if dataType == .character {
+                            let dataWrapper = try JSONDecoder().decode(DataWrapper<Character>.self, from: data)
+                            let characters = dataWrapper.data?.results
+                            let total = dataWrapper.data?.total
+                            Cache.characterCache.setObject(dataWrapper, forKey: NSString(string: key))
+                            Cache.copyright = dataWrapper.copyright ?? ""
+                            self.callBack?(characters, true, "", total)
+                        }else{
+                            let dataWrapper = try JSONDecoder().decode(DataWrapper<Comic>.self, from: data)
+                            let comics = dataWrapper.data?.results
+                            let total = dataWrapper.data?.total
+                            Cache.comicCache.setObject(dataWrapper, forKey: NSString(string: key))
+                            Cache.copyright = dataWrapper.copyright ?? ""
+                            self.callBack?(comics, true, "", total)
+                        }
+                    } else {
+                        let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+                        self.callBack?(nil, false, errorMessage.status, 0)
+                    }
+                } catch {
+                    self.callBack?(nil, false, error.localizedDescription, 0)
+                }
             }
+            
+
+            
         }
         
     }
