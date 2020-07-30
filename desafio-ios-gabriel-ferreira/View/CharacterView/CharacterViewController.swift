@@ -37,7 +37,9 @@ class CharacterViewController: UIViewController {
     }
     
     func showComic(comic : Comic) {
-        self.comicButton.isEnabled = true
+        if let button = self.comicButton {
+            self.comicButton.isEnabled = true
+        }
         self.comic = comic
     }
     

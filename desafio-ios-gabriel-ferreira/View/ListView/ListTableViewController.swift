@@ -22,6 +22,7 @@ class ListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.presenter = ListPresenter(delegate: self)
+        self.presenter.getData()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

@@ -40,7 +40,8 @@ class ComicViewController: UIViewController {
     
     func showError(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "tentar novamente", style: .default, handler: {
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: {
             (action : UIAlertAction) in
             if let path = self.comic.thumbnail?.path,
                 let ext = self.comic.thumbnail?.extension {

@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-OL-b3A">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="610.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wnh-dc-4jc">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
@@ -33,7 +33,7 @@
                                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0l-fX-BTL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0l-fX-BTL">
                                                 <rect key="frame" x="8" y="459" width="398" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -47,9 +47,15 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvb-fo-vCZ">
-                                                <rect key="frame" x="8" y="545.5" width="398" height="20.5"/>
+                                                <rect key="frame" x="8" y="578" width="398" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more on marvel.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqr-7g-CWs">
+                                                <rect key="frame" x="8" y="545.5" width="398" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -63,11 +69,14 @@
                                             <constraint firstItem="X59-UL-oXA" firstAttribute="top" secondItem="Wnh-dc-4jc" secondAttribute="bottom" constant="12" id="FHh-CV-98k"/>
                                             <constraint firstItem="x2m-Tx-ud8" firstAttribute="top" secondItem="c0l-fX-BTL" secondAttribute="bottom" constant="24" id="FZ3-mr-HIS"/>
                                             <constraint firstItem="Dvb-fo-vCZ" firstAttribute="leading" secondItem="cY0-OL-b3A" secondAttribute="leading" constant="8" id="HI2-nh-bEY"/>
+                                            <constraint firstItem="Hqr-7g-CWs" firstAttribute="top" secondItem="x2m-Tx-ud8" secondAttribute="bottom" constant="12" id="IRi-vs-cwS"/>
+                                            <constraint firstItem="Hqr-7g-CWs" firstAttribute="leading" secondItem="cY0-OL-b3A" secondAttribute="leading" constant="8" id="L9p-Xj-3vI"/>
+                                            <constraint firstItem="Dvb-fo-vCZ" firstAttribute="top" secondItem="Hqr-7g-CWs" secondAttribute="bottom" constant="12" id="M7o-OE-qpT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hqr-7g-CWs" secondAttribute="trailing" constant="8" id="MI2-Vq-Uvs"/>
                                             <constraint firstAttribute="bottom" secondItem="Dvb-fo-vCZ" secondAttribute="bottom" constant="12" id="Pco-UB-DAd"/>
                                             <constraint firstItem="X59-UL-oXA" firstAttribute="leading" secondItem="cY0-OL-b3A" secondAttribute="leading" constant="8" id="Q9B-wS-4Vz"/>
                                             <constraint firstAttribute="trailing" secondItem="c0l-fX-BTL" secondAttribute="trailing" constant="8" id="c6k-RF-9wY"/>
                                             <constraint firstItem="c0l-fX-BTL" firstAttribute="leading" secondItem="cY0-OL-b3A" secondAttribute="leading" constant="8" id="emf-If-NO8"/>
-                                            <constraint firstItem="Dvb-fo-vCZ" firstAttribute="top" secondItem="x2m-Tx-ud8" secondAttribute="bottom" constant="12" id="hXX-Va-2up"/>
                                             <constraint firstItem="x2m-Tx-ud8" firstAttribute="centerX" secondItem="cY0-OL-b3A" secondAttribute="centerX" id="l82-qU-Z9r"/>
                                             <constraint firstAttribute="trailing" secondItem="Wnh-dc-4jc" secondAttribute="trailing" id="r5R-dA-VgT"/>
                                             <constraint firstAttribute="trailing" secondItem="X59-UL-oXA" secondAttribute="trailing" id="sqs-VK-XpV"/>
@@ -106,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufc-Qn-Rdn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="259" y="-471"/>
+            <point key="canvasLocation" x="257.97101449275362" y="-471.42857142857139"/>
         </scene>
         <!--Comic-->
         <scene sceneID="0av-ay-SN4">

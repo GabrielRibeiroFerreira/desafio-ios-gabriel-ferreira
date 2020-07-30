@@ -13,9 +13,12 @@ class CharacterPresenter {
     private var comics : [Comic] = []
     var limit : Int = 100
     var offset : Int = 0
+    var service : ServiceProtocol!
     
     init(delegate: CharacterViewController) {
         self.delegate = delegate
+        
+        self.service = Service()
         if let url = delegate.character.comics?.collectionURI {
             self.getData(from: url)
             
@@ -31,35 +34,49 @@ class CharacterPresenter {
         let key = Cache.getKey(url: comicURL,
                                offset: self.offset,
                                limit: self.limit)
+        
+        if !self.getDataFromCache(key: key) {
+            self.getDataFromService(url: comicURL)
+        }
+    }
+    
+    func getDataFromCache(key : String) -> Bool {
+        var worked = false
         if let dataWrapper = Cache.comicCache.object(forKey: key as NSString) {
-            guard let comics = dataWrapper.data?.results else { return }
+            guard let comics = dataWrapper.data?.results else { return worked }
             self.comics = comics
             
             if let comic = self.getComic(from: comics) {
                 self.delegate?.showComic(comic: comic)
             }
-        } else  {
-            let service = Service()
-            do {
-                try service.getData(from: comicURL, for: .comic, offset: self.offset, limit: self.limit)
-                service.completionHandler { [weak self] (comicData, status, message, total) in
-                    if status {
-                        print(message)
-                        guard let self = self else {return}
-                        guard let comics = comicData as? [Comic] else {return}
-                        self.comics = comics
-                        
-                        if let comic = self.getComic(from: comics) {
-                            self.delegate?.showComic(comic: comic)
-                        }
+            worked = true
+        }
+        return worked
+    }
+    
+    func getDataFromService(url: String) {
+        do {
+            self.service.completionHandler { [weak self] (comicData, status, message, total) in
+                if status {
+                    print(message)
+                    guard let self = self else {return}
+                    guard let comics = comicData as? [Comic] else {return}
+                    self.comics = comics
+                    
+                    if let comic = self.getComic(from: comics) {
+                        self.delegate?.showComic(comic: comic)
                     }
+                } else {
+                    self?.delegate?.showError(title: "Service error",
+                                             message: "Problem with connecting to the server, update the application or contact us")
                 }
-            }catch ConnectErrors.receivedFailure{
-                self.delegate?.showError(title: "Connection problem",
-                                         message: "The comic is not available due to lack of internet connection")
-            }catch{
-                print(error)
             }
+            try self.service.getData(from: url, for: .comic, offset: self.offset, limit: self.limit)
+        }catch ConnectErrors.receivedFailure{
+            self.delegate?.showError(title: "Connection problem",
+                                     message: "The comic is not available due to lack of internet connection")
+        }catch{
+            print(error)
         }
     }
     

@@ -1,20 +1,19 @@
 //
-//  desafio_ios_gabriel_ferreiraTests.swift
+//  DesafioAsyncTest.swift
 //  desafio-ios-gabriel-ferreiraTests
 //
-//  Created by Gabriel Ferreira on 23/07/20.
+//  Created by Gabriel Ferreira on 29/07/20.
 //  Copyright © 2020 Ribeiro Ferreira. All rights reserved.
 //
 
 import XCTest
 @testable import desafio_ios_gabriel_ferreira
 
-class desafio_ios_gabriel_ferreiraTests: XCTestCase {
-    var service: Service!
+class DesafioAsyncTest: XCTestCase {
+    var service: Service = Service()
 
     override func setUpWithError() throws {
         super.setUp()
-        service = Service()
     }
     
     func testCharactersAtComic() {

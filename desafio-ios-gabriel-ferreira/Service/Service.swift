@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class Service {
+class Service : ServiceProtocol {
     let timestamp: String = NSDate().timeIntervalSince1970.description
     let publicKey: String = "3f571eccb3e73af23236d572a9811c6a"
     let privateKey: String = "8ca986cc60fe75b08da060874a58bce4d6b2c18e"
@@ -23,6 +23,8 @@ class Service {
         }
         
         let hash = Hash.MD5(string: self.timestamp + self.privateKey + self.publicKey)
+//        DebugPrint: use to create a valid link to test api
+//        print(url + "?ts=" + self.timestamp + "&apikey=" + self.publicKey + "&hash=" + hash)
         
         AF.request(url, method: .get, parameters: ["ts": self.timestamp, "apikey": self.publicKey , "hash": hash, "limit": limit, "offset": String(offset)], encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
             (responseData) in
@@ -31,7 +33,7 @@ class Service {
                 self.callBack?(nil, false, error.errorDescription ?? "", 0)
             case .success(_):
                 guard let data = responseData.data else {
-                    self.callBack?(nil, false, "", 0)
+                    self.callBack?(nil, false, "API response did not return data", 0)
                     return
                 }
                 do {
@@ -62,11 +64,7 @@ class Service {
                     self.callBack?(nil, false, error.localizedDescription, 0)
                 }
             }
-            
-
-            
         }
-        
     }
     
     func completionHandler(callBack: @escaping CallBack) {

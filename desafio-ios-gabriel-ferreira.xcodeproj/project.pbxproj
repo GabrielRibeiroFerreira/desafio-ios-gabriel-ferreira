@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		26FA904A25F2925D4289FE68 /* Pods_desafio_ios_gabriel_ferreiraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F324664B397A548447523141 /* Pods_desafio_ios_gabriel_ferreiraTests.framework */; };
+		2A2258D024D232B9004C8738 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2258CF24D232B9004C8738 /* ServiceProtocol.swift */; };
+		2AA6924424D233F000316933 /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA6924324D233F000316933 /* ServiceMock.swift */; };
+		2AA6924624D23D4200316933 /* DesafioCharacterSyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA6924524D23D4200316933 /* DesafioCharacterSyncTest.swift */; };
+		2AA6924824D23F1F00316933 /* DesafioAsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA6924724D23F1F00316933 /* DesafioAsyncTest.swift */; };
 		2AB1959424C9EE0A00A5B56C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1959324C9EE0A00A5B56C /* AppDelegate.swift */; };
 		2AB1959624C9EE0A00A5B56C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1959524C9EE0A00A5B56C /* SceneDelegate.swift */; };
 		2AB1959824C9EE0A00A5B56C /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1959724C9EE0A00A5B56C /* ListTableViewController.swift */; };
 		2AB1959B24C9EE0A00A5B56C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB1959924C9EE0A00A5B56C /* Main.storyboard */; };
 		2AB1959D24C9EE0D00A5B56C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB1959C24C9EE0D00A5B56C /* Assets.xcassets */; };
 		2AB195A024C9EE0D00A5B56C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB1959E24C9EE0D00A5B56C /* LaunchScreen.storyboard */; };
-		2AB195AB24C9EE0E00A5B56C /* desafio_ios_gabriel_ferreiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB195AA24C9EE0E00A5B56C /* desafio_ios_gabriel_ferreiraTests.swift */; };
 		2AB195BE24C9F13D00A5B56C /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB195BC24C9F13D00A5B56C /* CharacterTableViewCell.swift */; };
 		2AB195BF24C9F13D00A5B56C /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB195BD24C9F13D00A5B56C /* CharacterTableViewCell.xib */; };
 		2AB195C124C9F35100A5B56C /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB195C024C9F35100A5B56C /* ListPresenter.swift */; };
@@ -50,6 +53,10 @@
 /* Begin PBXFileReference section */
 		12D33CBFF154BE6A1AB39C16 /* Pods-desafio-ios-gabriel-ferreiraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-gabriel-ferreiraTests.release.xcconfig"; path = "Target Support Files/Pods-desafio-ios-gabriel-ferreiraTests/Pods-desafio-ios-gabriel-ferreiraTests.release.xcconfig"; sourceTree = "<group>"; };
 		1C2E1EB21591272652EB65EC /* Pods-desafio-ios-gabriel-ferreira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-gabriel-ferreira.release.xcconfig"; path = "Target Support Files/Pods-desafio-ios-gabriel-ferreira/Pods-desafio-ios-gabriel-ferreira.release.xcconfig"; sourceTree = "<group>"; };
+		2A2258CF24D232B9004C8738 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		2AA6924324D233F000316933 /* ServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMock.swift; sourceTree = "<group>"; };
+		2AA6924524D23D4200316933 /* DesafioCharacterSyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioCharacterSyncTest.swift; sourceTree = "<group>"; };
+		2AA6924724D23F1F00316933 /* DesafioAsyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioAsyncTest.swift; sourceTree = "<group>"; };
 		2AB1959024C9EE0A00A5B56C /* desafio-ios-gabriel-ferreira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-gabriel-ferreira.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB1959324C9EE0A00A5B56C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AB1959524C9EE0A00A5B56C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +66,6 @@
 		2AB1959F24C9EE0D00A5B56C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AB195A124C9EE0E00A5B56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AB195A624C9EE0E00A5B56C /* desafio-ios-gabriel-ferreiraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-gabriel-ferreiraTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AB195AA24C9EE0E00A5B56C /* desafio_ios_gabriel_ferreiraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_ios_gabriel_ferreiraTests.swift; sourceTree = "<group>"; };
 		2AB195AC24C9EE0E00A5B56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AB195BC24C9F13D00A5B56C /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		2AB195BD24C9F13D00A5B56C /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
@@ -106,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AA6924924D2626E00316933 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				2AA6924324D233F000316933 /* ServiceMock.swift */,
+				2AA6924524D23D4200316933 /* DesafioCharacterSyncTest.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
 		2AB1958724C9EE0A00A5B56C = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +160,8 @@
 		2AB195A924C9EE0E00A5B56C /* desafio-ios-gabriel-ferreiraTests */ = {
 			isa = PBXGroup;
 			children = (
-				2AB195AA24C9EE0E00A5B56C /* desafio_ios_gabriel_ferreiraTests.swift */,
+				2AE4A72524D27715009E9715 /* Async */,
+				2AA6924924D2626E00316933 /* Sync */,
 				2AB195AC24C9EE0E00A5B56C /* Info.plist */,
 			);
 			path = "desafio-ios-gabriel-ferreiraTests";
@@ -226,10 +242,19 @@
 			isa = PBXGroup;
 			children = (
 				2AB195C624CB0ADA00A5B56C /* Service.swift */,
+				2A2258CF24D232B9004C8738 /* ServiceProtocol.swift */,
 				2AB195C824CB120C00A5B56C /* ConnectErrors.swift */,
 				2AB195CE24CB2F9500A5B56C /* Hash.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2AE4A72524D27715009E9715 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				2AA6924724D23F1F00316933 /* DesafioAsyncTest.swift */,
+			);
+			path = Async;
 			sourceTree = "<group>";
 		};
 		332164F10504DB4A5101154C /* Pods */ = {
@@ -442,6 +467,7 @@
 				2AB195D124CB58E700A5B56C /* DataWrapper.swift in Sources */,
 				2AB195BE24C9F13D00A5B56C /* CharacterTableViewCell.swift in Sources */,
 				2AB195CF24CB2F9500A5B56C /* Hash.swift in Sources */,
+				2A2258D024D232B9004C8738 /* ServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +475,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AB195AB24C9EE0E00A5B56C /* desafio_ios_gabriel_ferreiraTests.swift in Sources */,
+				2AA6924424D233F000316933 /* ServiceMock.swift in Sources */,
+				2AA6924824D23F1F00316933 /* DesafioAsyncTest.swift in Sources */,
+				2AA6924624D23D4200316933 /* DesafioCharacterSyncTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
